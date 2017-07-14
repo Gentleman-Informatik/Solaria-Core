@@ -1,0 +1,19 @@
+{
+    "autoload": {
+      "psr-4": {
+        "Solaria\\Framework\\": "Framework",
+        "Solaria\\Application\\": "Application"
+      }
+    },
+    "require": {
+        "twig/twig": "1.31.0",
+        "phpunit/phpunit": "5.5.*",
+        "golonka/bbcodeparser": "^2.2",
+        "doctrine/orm": "2.4.*",
+        "symfony/yaml": "2.*",
+        "monolog/monolog": "*",
+        "phpdocumentor/phpdocumentor": "2.*",
+        "php-di/php-di": "^5.4",
+        "zendframework/zend-permissions-rbac": "^2.5"
+    }
+}

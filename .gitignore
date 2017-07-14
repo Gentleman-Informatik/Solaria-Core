@@ -1,0 +1,8 @@
+main.ini
+vendor
+composer.lock
+cache/view/*
+node_modules/*
+node_modules/
+log/*.log
+Application/*
