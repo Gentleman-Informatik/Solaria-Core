@@ -26,7 +26,7 @@ class Template extends DiClass{
         if($this->renderView) {
             $this->set('Tag', $this->di->get('Solaria\Framework\View\Tag'));
             //$this->set('flashSession', Application::singleton('Solaria\Framework\View\Flash\SessionFlash'));
-            //$this->set('url', Url::getBaseURL());
+            $this->set('url', $this->di->get('Url')->url);
             $this->parentTemplates();
             echo $this->renderChildes();
             return;
