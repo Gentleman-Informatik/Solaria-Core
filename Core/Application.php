@@ -62,16 +62,22 @@ class Application {
         //Set template engine up!
         \Twig_Autoloader::register();
         $loader = new \Twig_Loader_Filesystem(APP_PATH.'/Application');
-        $loader->addPath(APP_PATH.'/Application/Page/View', 'Page');
+        $dir = new DirectoryIterator(dirname(APP_PATH.'/Application/Page'));
+        $modules = array();
+        foreach ($dir as $fileinfo) {
+            if (!$fileinfo->isDot() && $fileinfo->getFilename() !== "Models") {
+                $loader->addPath(APP_PATH.'/Application/'.$fileinfo->getFilename().'/View', $fileinfo->getFilename());
+                $modules[] = $fileinfo->getFilename();
+            }
+        }
+        //$loader->addPath(APP_PATH.'/Application/Page/View', 'Page');
         $twig = new \Twig_Environment($loader, array(
             'cache' => APP_PATH.'/'.$mainConf['view']['cacheDir'],
             'debug' => $mainConf['view']['debug'],
             'auto_reload ' => $mainConf['view']['auto_reload']
         ));
         self::$di->set('View', $twig);
-        self::$di->set('Modules', array(
-            'Page'
-        ));
+        self::$di->set('Modules', $modules);
 
     }
 
