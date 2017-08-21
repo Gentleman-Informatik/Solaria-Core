@@ -19,6 +19,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use DI\ContainerBuilder;
 use Exception;
+use DirectoryIterator;
 
 class Application {
 
