@@ -48,7 +48,7 @@ class Url extends DiClass {
                 $uri = array_splice($uri, 1);
             }
 
-            if(count($uri) == 3 && is_numeric($uri[1])) {
+            if(count($uri) == 3 && is_numeric($uri[2])) {
                 $param = $uri[2];
                 $uri[2] = 'index';
                 $uri[3] = $param;

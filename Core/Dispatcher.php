@@ -41,7 +41,7 @@ class Dispatcher extends DiClass {
                 call_user_func_array(array(new $controller, $action), $arguments);
                 return;
             } else {
-                throw new Exception("Method ".$action. " does not exist!");
+                throw new \Exception("Method ".$action. " does not exist!");
             }
         }
         throw new \Exception("Class ".$controller. " does not exist!");
