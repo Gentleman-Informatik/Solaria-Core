@@ -21,6 +21,7 @@ class SessionFlash extends DiClass{
     private $cssClasses = array();
 
     public function __construct($cssClasses = array()) {
+        parent::__construct();
         if(empty($cssClasses)) {
             $this->setCssClasses($this->defaultClasses);
         } else {
