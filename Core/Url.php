@@ -48,10 +48,10 @@ class Url extends DiClass {
                 $uri = array_splice($uri, 1);
             }
 
-            if(count($uri) == 2 && is_numeric($uri[1])) {
-                $param = $uri[1];
-                $uri[1] = 'index';
-                $uri[2] = $param;
+            if(count($uri) == 3 && is_numeric($uri[1])) {
+                $param = $uri[2];
+                $uri[2] = 'index';
+                $uri[3] = $param;
             }
 
             if(count($uri) == 1) {
@@ -64,7 +64,7 @@ class Url extends DiClass {
             $action = (isset($uri[2]) && $uri[2] != '' ) ? $uri[2]."Action" : 'indexAction';
             $params = array();
 
-            for ($i=2; $i < (count($uri)); $i++) {
+            for ($i=3; $i < (count($uri)); $i++) {
                 array_push($params, $uri[$i]);
             }
 

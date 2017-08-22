@@ -5,7 +5,6 @@
 * soo look what you are chaning here
 *
 * @author Flavio Kleiber <flaverkleiber@yahoo.de>
-* @package Solaria\Framework
 * @copyright 2016-2017 Flavio Kleiber
 */
 namespace Solaria\Framework\Core;
@@ -14,6 +13,8 @@ use \Doctrine\ORM\Tools\Setup;
 use \Doctrine\ORM\EntityManager;
 use Solaria\Framework\Core\Url;
 use Solaria\Framework\Core\Session;
+use Solaria\Framework\Core\Request;
+use Solaria\Framework\Core\Response;
 use Solaria\Framework\View\Flash\SessionFlash;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -92,6 +93,8 @@ class Application {
         self::$di->set('Session', $session);
         self::$di->set('Application', $this);
         self::$di->set('SessionFlash', new SessionFlash());
+        self::$di->set('Request', new Request());
+        self::$di->set('Response', new Response());
         $urlConfig = parse_ini_file(APP_PATH."/config/url.ini", true);
         $url = new Url($urlConfig);
         $url->resolve($_GET['_url']);
