@@ -23,6 +23,8 @@ class BaseController extends DiClass {
         parent::__construct();
         $this->session = $this->di->get('Session');
         $this->view = new Template();
+        $this->request = $this->di->get('Request');
+        $this->response = $this->di->get('Response');
         //$this->setUpRbac(); !COMENT THIS OUT IF YOU USING A PERMISSION SYSTEM!
     }
 
