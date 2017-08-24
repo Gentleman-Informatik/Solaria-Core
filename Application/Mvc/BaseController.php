@@ -25,7 +25,7 @@ class BaseController extends DiClass {
         $this->view = new Template();
         $this->request = $this->di->get('Request');
         $this->response = $this->di->get('Response');
-        //$this->setUpRbac(); !COMENT THIS OUT IF YOU USING A PERMISSION SYSTEM!
+        $this->setUpRbac();
     }
 
     public function __destruct() {
