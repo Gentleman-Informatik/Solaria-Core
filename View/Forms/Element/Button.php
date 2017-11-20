@@ -10,7 +10,7 @@ namespace Solaria\Framework\View\Forms\Element;
 
 use Solaria\Framework\View\Forms\Element\ElementInterface;
 
-class Select implements ElementInterface {
+class Button implements ElementInterface {
 
   private $type;
   private $name;
