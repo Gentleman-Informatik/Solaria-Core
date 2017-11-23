@@ -47,6 +47,10 @@ class Dispatcher extends DiClass {
         throw new \Exception("Class ".$controller. " does not exist!");
     }
 
+    public function forward($controller, $action, $arguments = array(), $module = 'Page') {
+      $this->run($controller, $action, $arguments, $module);
+    }
+
     public function getController() {
         return $this->currentController;
     }
