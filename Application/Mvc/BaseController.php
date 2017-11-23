@@ -38,8 +38,12 @@ class BaseController extends DiClass {
         $rbac = new Rbac();
 
         if(!empty($result) && $result != false) {
-            foreach ($result as $role) {
-                $rbac->addRole($role->getName());
+	    foreach ($result as $role) {
+		if(count($role->getExtendRole()) > 0) {
+		  $rbac->addRole($role->getName(), [$role->getExtendRole()[0]->getName()]);
+		} else {
+		  $rbac->addRole($role->getName());
+		}	
                 foreach ($role->getRolePermission() as $rp) {
                     $rbac->addPermissionToRole($role->getName(), $rp->getPermission()->getName());
                 }
