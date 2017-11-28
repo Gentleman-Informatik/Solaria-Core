@@ -41,7 +41,7 @@ class Template extends DiClass{
         $module = $this->di->get('Dispatcher')->getModule();
         $controller = $this->di->get('Dispatcher')->getController();
         $action = $this->di->get('Dispatcher')->getAction();
-        return $this->renderer->render('@'.$module.'/'.$controller.'/'.$action.'.html',$this->prepVars());
+        return $this->renderer->render('@'.$module.'/'.$controller.'/'.$action.'.twig',$this->prepVars());
     }
     private function prepVars() {
         return $this->variables;
