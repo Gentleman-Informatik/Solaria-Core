@@ -18,6 +18,13 @@ class BaseModel {
         $entityManager->flush();
         return $obj;
     }
+    
+    public function update($obj) {
+    	$entityManager = Application::$di->get('EntityManager');
+	$entityManager->merge($obj);
+	$entityManafer->flush();
+	return true;
+    }
 
     public function delete($obj) {
         $entityManager = Application::$di->get('EntityManager');
