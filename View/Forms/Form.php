@@ -12,7 +12,7 @@ use Solaria\Framework\View\Forms\Element\ElementInterface;
 use Solaria\Framework\Core\DiClass;
 use Exception;
 
-class Form {
+class Form extends DiClass {
 
   private $elements = array();
   private $method;
