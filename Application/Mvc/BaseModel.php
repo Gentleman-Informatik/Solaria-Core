@@ -22,7 +22,7 @@ class BaseModel {
     public function update($obj) {
     	$entityManager = Application::$di->get('EntityManager');
 	$entityManager->merge($obj);
-	$entityManafer->flush();
+	$entityManager->flush();
 	return true;
     }
 
