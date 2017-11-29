@@ -9,6 +9,7 @@
 namespace Solaria\Framework\View\Forms;
 
 use Solaria\Framework\View\Forms\Element\ElementInterface;
+use Solaria\Framework\Core\DiClass;
 use Exception;
 
 class Form {
@@ -18,6 +19,7 @@ class Form {
   private $action;
 
   public function __construct($method = "POST", $action = "") {
+    parent::__construct();	  
     $this->method = $method;
     $this->action = $action;
   }
@@ -36,7 +38,7 @@ class Form {
   public function render() {
 
     //Start rendering htlm
-    echo '<form method="'.$this->method.'" action="'.$this->action.'">';
+    echo '<form method="'.$this->method.'" action="'.$this->di->get('Url')->url.'/'.$this->action.'">';
     foreach ($this->elements as $element) {
         $element->render();
     }
